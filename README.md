@@ -10,4 +10,4 @@ Incase Project fails at assembleDebug please create a new project and overwrite
 
 Todo:
 
-- Added Checkout Window
+- Add Checkout Window
