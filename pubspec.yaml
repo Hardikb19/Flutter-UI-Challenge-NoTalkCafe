@@ -1,0 +1,34 @@
+name: flutter_ui_challenge
+description: A Flutter UI project for UI Challenge
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  font_awesome_flutter:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+   - burger-king.jpg
+   - Bacon-Cheesy-1.jpg
+   - burger-triple-large.png
+   - speggod.jpg
+   - pasta1.jpg
+   - pasta2.jpg 
+   - burst.jpg
+   - burst2.jpg
+   - burst3.jpg
+
+  fonts:
+    - family: Cabin
+      fonts:
+        - asset: assets/Cabin-Bold.ttf
