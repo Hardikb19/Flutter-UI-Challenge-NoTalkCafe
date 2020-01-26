@@ -7,3 +7,7 @@ Incase Project fails at assembleDebug please create a new project and overwrite
 - pubspec.yaml
 - /assets
 - /screenshots
+
+Todo:
+
+- Added Checkout Window
