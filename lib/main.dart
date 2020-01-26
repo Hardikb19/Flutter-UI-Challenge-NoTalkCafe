@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:ui';
 import 'dart:math' as math;
 
-void main() => runApp(FlutterUI());
+void main() {
+  
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+    .then((_) {
+      runApp(new FlutterUI());
+    });
+}
+
+//void main() => runApp(FlutterUI());
 
 class FlutterUI extends StatelessWidget {
   @override
@@ -48,7 +57,7 @@ class _MenuPageState extends State<MenuPage> {
           gradient: LinearGradient(
               colors: [
                 Colors.black,
-                (diffval==1)?Colors.greenAccent:(diffval==2)?Colors.red:Colors.blueGrey,
+                (diffval==1)?Colors.cyan.withOpacity(0.4):(diffval==2)?Colors.red:Colors.blueGrey,
                 Colors.black,
                 Colors.black,
                 Colors.black,
@@ -82,7 +91,6 @@ class _MenuPageState extends State<MenuPage> {
                       onTap: (){
                         setState(() {
                           diffval = 1;
-                          //currentPage = imagespizza.length - 1.0;
                         });
                         MaterialPageRoute(builder: (context)=>build(context));
                         print(diffval);
@@ -96,7 +104,6 @@ class _MenuPageState extends State<MenuPage> {
                       onTap: (){
                         setState(() {
                           diffval = 2;
-                          //currentPage = imagesBurger.length - 1.0;
                         });
                         MaterialPageRoute(builder: (context)=>build(context));
                         print(diffval);
@@ -110,7 +117,6 @@ class _MenuPageState extends State<MenuPage> {
                       onTap: (){
                         setState(() {
                           diffval = 3;
-                          currentPage = imagespasta.length - 0.0;
                         });
                         MaterialPageRoute(builder: (context)=>build(context));
                         print(diffval);
@@ -161,7 +167,6 @@ class _MenuPageState extends State<MenuPage> {
                   ],
                 ),
               ),
-             
             ],
           ),
         ),
@@ -239,6 +244,33 @@ class CardScrollWidget extends StatelessWidget {
                             topRight: Radius.circular(30.0)
                           ),
                         child: Image.asset(images[i], fit: BoxFit.cover),
+                      ),
+                      Align(
+                        alignment: Alignment.topLeft,
+                          child: Container(
+                            width: 50.0,
+                            padding: EdgeInsets.symmetric(vertical: 2.0,horizontal: 3.0),
+                            margin: EdgeInsets.symmetric(vertical: 5.0,horizontal: 10.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20.0),
+                                bottomRight: Radius.circular(50.0),
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black,
+                                  blurRadius: 6.0,
+                                ),
+                                
+                                BoxShadow(
+                                  color: Colors.white60,
+                                  blurRadius: 10.0,
+                                )
+                              ],
+                              color: Colors.red
+                            ),
+                            child: Text(price[i],style: TextStyle(color: Colors.white)),
+                          ),
                       ),
                       Align(
                         alignment: Alignment.bottomLeft,
@@ -336,6 +368,12 @@ TextStyle activeText(){
     color: Colors.white
   );
 }
+
+List<String> price = [
+  '\$ 2',
+  '\$ 1.8',
+  '\$ 9',
+];
 
 List<String> imagespasta = [
   'speggod.jpg',
